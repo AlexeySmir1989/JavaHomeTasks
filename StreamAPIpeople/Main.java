@@ -28,12 +28,12 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println(surnameOfRecruit);
 
-        List<String> potentialWorkersMAN = persons.stream()
-                .filter(value -> value.getEducation() == Education.HIGHER)
-                .filter(value -> value.getSex() == Sex.MAN)
-                .filter(value -> value.getAge() > 18 && value.getAge() < 65)
+        List<Person> potentialWorkers = persons.stream()
+                .filter(person -> (person.getSex() == Sex.WOMAN && person.getAge() >= 18 && person.getAge() <= 60) ||
+                        (person.getSex() == Sex.MAN && person.getAge() >= 18 && person.getAge() <= 65))
+                .filter(person -> person.getEducation() == Education.HIGHER)
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
-        System.out.println(potentialWorkersMAN);
+        System.out.println("Отсортированный список работоспособных людей: " + potentialWorkers);
     }
 }

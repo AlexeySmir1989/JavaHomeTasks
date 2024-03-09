@@ -1,4 +1,4 @@
-package JavaCoreTasks;
+package JavaCoreTasks.Worker;
 import JavaCoreTasks.Worker.*;
 
 public class Main {
